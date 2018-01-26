@@ -14,9 +14,11 @@ int main(void)
 	DDRK = 0xff;
 	DDRC = 0x0f;
 														
-	int trans[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 
+	/*int trans[] = {0x3f, 0x06, 0x5b, 0x4f, 0x66, 0x6d, 0x7d, 0x07, 
 					0x7f, 0x6f, 0x77, 0x7c, 0x58, 0x5e, 0x79, 0x71};
-		
+		*/
+
+	int trans[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80};
 	int digit[] = {0x07, 0x0b, 0x0d, 0x0e};
 
     /* Replace with your application code */
@@ -25,7 +27,7 @@ int main(void)
 		for(int j = 0; j < 4; j++)
 		{
 			PORTC  = digit[j];
-			for(int i = 0; i < 16; i++)
+			for(int i = 0; i < 8; i++)
 			{
 				PORTK = trans[i];
 				_delay_ms(500);
@@ -33,9 +35,6 @@ int main(void)
 				_delay_ms(250);
 			
 			}
-		
-		//PORTC |= 1 << 3; // 
-		//PORTC &= ~(1 << 3); //
 		}
 	}
 }

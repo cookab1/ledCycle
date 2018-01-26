@@ -314,33 +314,33 @@ END GROUP
  *(.fini0)
                 0x000001ba                _etext = .
 
-.data           0x00800200       0x28 load address 0x000001ba
+.data           0x00800200       0x18 load address 0x000001ba
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  *(.gnu.linkonce.d*)
  *(.rodata)
- .rodata        0x00800200       0x28 main.o
+ .rodata        0x00800200       0x18 main.o
  *(.rodata*)
  *(.gnu.linkonce.r*)
-                0x00800228                . = ALIGN (0x2)
-                0x00800228                _edata = .
-                0x00800228                PROVIDE (__data_end, .)
+                0x00800218                . = ALIGN (0x2)
+                0x00800218                _edata = .
+                0x00800218                PROVIDE (__data_end, .)
 
-.bss            0x00800228        0x0
+.bss            0x00800218        0x0
                 [!provide]                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
                 [!provide]                PROVIDE (__bss_end, .)
                 0x000001ba                __data_load_start = LOADADDR (.data)
-                0x000001e2                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000001d2                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800228        0x0
+.noinit         0x00800218        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800228                _end = .
+                0x00800218                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
